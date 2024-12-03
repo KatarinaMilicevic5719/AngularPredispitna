@@ -1,0 +1,115 @@
+[
+    {
+      "id": 1,
+      "name": "Adidas supernova 2 M",
+      "image": "p1.jpg",
+      "price":{
+        "current": 60.99,
+        "old":100.99
+      },
+      "brandId": 1,
+      "categoryId": 1,
+      "genderId":3,
+      "sizes": [38, 39, 40, 41, 42, 43, 44],
+      "availability": "in_stock"
+    },
+    {
+      "id": 2,
+      "name": "Nike run swift 3 M",
+      "image": "p2.jpg",
+      "price":{
+        "current": 60.99,
+        "old":null
+      },
+      "brandId": 2,
+      "categoryId": 1,
+      "genderId":2,
+      "sizes": [36, 37, 38, 39, 40],
+      "availability": "limited_stock"
+    },
+    {
+      "id": 3,
+      "name": "Adidas carrera cvs M ",
+      "image": "p3.jpg",
+      "price": {
+        "current":30.99,
+        "old":70.99
+      },
+      "brandId": 1,
+      "categoryId": 4,
+      "genderId":1,
+      "sizes": [40, 41, 42, 43],
+      "availability": "in_stock"
+    },
+    {
+      "id": 4,
+      "name": "New Balance 997 M",
+      "image": "p4.jpg",
+      "price": {
+        "current":74.99,
+        "old":null
+      },
+      "brandId": 4,
+      "categoryId": 2,
+      "genderId":1,
+      "sizes": [39, 40, 41],
+      "availability": "in_stock"
+    },
+    {
+      "id": 5,
+      "name": "Puma caven dime fc M",
+      "image": "p5.jpg",
+      "price": {
+        "current":53.99,
+        "old":null
+      },
+      "brandId": 5,
+      "categoryId": 2,
+      "genderId":1,
+      "sizes": [38, 39, 40, 41, 42],
+      "availability": "pre_order"
+    },
+    {
+      "id": 6,
+      "name": "Asics gel-pulse 15",
+      "image": "p6.jpg",
+      "price":{
+        "current":89.99,
+        "old":130.99
+      },
+      "brandId": 4,
+      "categoryId": 1,
+      "genderId":3,
+      "sizes": [37, 38, 39, 40],
+      "availability": "in_stock"
+    },
+    {
+      "id": 7,
+      "name": "Puma caven tape M",
+      "image": "p7.jpg",
+      "price":{
+        "current":50.99,
+        "old":null
+      },
+      "brandId": 5,
+      "categoryId": 2,
+      "genderId":2,
+      "sizes": [39, 40, 41, 42, 43],
+      "availability": "in_stock"
+    },
+    {
+      "id": 8,
+      "name": "Puma caven tape 2.0 M",
+      "image": "p8.jpg",
+      "price": {
+        "current":53.99,
+        "old":null
+      },
+      "brandId": 5,
+      "categoryId": 2,
+      "genderId":2,
+      "sizes": [36, 37, 38, 39, 40],
+      "availability": "in_stock"
+    }
+  ]
+  

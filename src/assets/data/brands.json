@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "name":"Addidas"
+    },
+    {
+        "id":2,
+        "name":"Nike"
+    },
+    {
+        "id":3,
+        "name":"New Balance"
+    },
+    {
+        "id":4,
+        "name":"Asics"
+    },
+    {
+        "id":5,
+        "name":"Puma"
+    }
+]

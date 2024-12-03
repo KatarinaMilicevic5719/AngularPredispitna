@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "name":"Running"
+    },
+    {
+        "id":2,
+        "name":"Lifestyle"
+    },
+    {
+        "id":3,
+        "name":"Sport"
+    },
+    {
+        "id":"4",
+        "name":"Elegance"
+    }
+]
