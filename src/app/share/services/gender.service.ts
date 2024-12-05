@@ -12,6 +12,6 @@ export class GenderService {
     private http:HttpClient
   ) { }
   getGenders():Observable<Gender[]>{
-    return this.http.get<Gender[]>("assets/data/categories.json");
+    return this.http.get<Gender[]>("assets/data/gender.json");
   }
 }
