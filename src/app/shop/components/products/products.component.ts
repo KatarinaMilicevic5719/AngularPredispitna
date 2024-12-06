@@ -8,6 +8,7 @@ import { CategoryService } from '../../../share/services/category.service';
 import { BrandService } from '../../../share/services/brand.service';
 import { GenderService } from '../../../share/services/gender.service';
 import { Router } from '@angular/router';
+import { CartService } from '../../../share/services/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -25,6 +26,12 @@ export class ProductsComponent implements OnInit {
   brands:Brand[]=[]
   genders:Gender[]=[]
   selectedCategory: number | null = null;
+  minPrice:number=20;
+  maxPrice:number|null|undefined=null;
+  currentPrice:|number|null=null;
+  sliderStyle:string = '';
+  
+   
 
   filteredProducts=[...this.products];
 
@@ -44,7 +51,7 @@ export class ProductsComponent implements OnInit {
     private categoryService:CategoryService,
     private brandsService:BrandService,
     private genderService:GenderService,
-
+    private cartService:CartService,
     private router:Router
   ){}
 
@@ -86,6 +93,9 @@ export class ProductsComponent implements OnInit {
         console.log(err);
       }
     })
+    this.maxPrice=this.getMaxPrice();
+    this.currentPrice=this.maxPrice;
+    this.updateSliderStyle();
   }
   redirectToSinglePage(id:number){
     this.router.navigateByUrl("/shop/"+id);
@@ -124,6 +134,11 @@ export class ProductsComponent implements OnInit {
       this.filteredProducts=this.filteredProducts.sort((a,b)=>a.name.localeCompare(b.name))
     }
   }
+  const validCurrentValue = this.currentPrice ?? this.minPrice;
+   this.filteredProducts=this.filteredProducts.filter(
+    product=>product.price.current<=validCurrentValue
+   )
+
   console.log(this.filteredProducts);
   this.products=this.filteredProducts;
   }
@@ -141,13 +156,52 @@ export class ProductsComponent implements OnInit {
     console.log(this.categoriesElem)
     console.log(this.gendersElem);
     this.applyFilters();
+    this.ngOnInit();
+    this.updateSliderStyle();
   }
   checkListAndDeselectChecked(list:QueryList<ElementRef>|undefined){
     list?.forEach((elem:ElementRef)=>{
       elem.nativeElement.checked=false;
     });
   }
-  
+  addToCart(productId:number){
+    this.cartService.addToCart(productId);
+    this.cartService.totalCountListener$.next(true);
+  }
+  getMaxPrice(){
+    let productsExist=localStorage.getItem("products");
+    if(productsExist!=null){
+      let products:Product[]=JSON.parse(productsExist);
+      let max=Math.max(...products.map(product=>product.price.current))
+      return max;
+    }
+    return 0
+  }
+  updateSliderStyle(){
+    const min = this.minPrice ?? 0; 
+    const max = this.maxPrice ?? 100;
+    const currentValue = this.currentPrice ?? min;  // Ako je currentValue null ili undefined, koristi min kao default
+
+    // Ako je min veći od max, zamenjuj ih
+    if (min > max) {
+      this.sliderStyle = '';
+      return;
+    }
+
+    const percentage = ((currentValue - min) / (max - min)) * 100;
+
+    // Stil za bojenje pozadine
+    if (currentValue === max) {
+        
+      this.sliderStyle = `
+        background: linear-gradient(to right, #ffba00 100%, #ffba00 100%);
+      `;
+    } else {
+      this.sliderStyle = `
+        background: linear-gradient(to right, #ffba00 ${percentage}%, #ccc ${percentage}%);
+      `;
+    }
+  }
   
 
 }

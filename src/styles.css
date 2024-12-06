@@ -16711,3 +16711,72 @@ label {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.lk{
+    cursor: pointer;
+}
+button:disabled {
+    opacity: 0.6; 
+    cursor: not-allowed; 
+  }
+
+  /* Slider pozadina */
+input[type="range"] {
+  -webkit-appearance: none;  /* Onemogućava default stilove u WebKit browserima */
+  width: 100%;
+  height: 20px;  /* Povećaj visinu slidera */
+  border-radius: 10px;  /* Zaobljeni krajevi */
+  outline: none;  /* Uklanja outline kad je u fokusu */
+  cursor: pointer;
+  transition: background 0.3s;  /* Glatka promena boje pozadine */
+}
+
+/* Slider pozadina (sa bojama za trenutnu vrednost) */
+input[type="range"]:focus {
+  outline: none;  /* Uklanja outline prilikom fokusa */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 0px;  /* Visina samog traga slidera */
+  border-radius: 10px;
+  background: #ccc;
+  
+}
+
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  border-radius: 10px;
+  background: #ccc;
+}
+
+/* Klizač (thumb) - veći i okrugli */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;  /* Širina klizača */
+  height: 30px;  /* Visina klizača */
+  border-radius: 50%;  /* Okrugli klizač */
+  background: #ff6c00;  /* Zelena boja klizača */
+  cursor: pointer;
+  margin-top: -12px;
+  
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);  /* Dodaje senku klizaču */
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ff6c00;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Kada je slider u fokusu */
+input[type="range"]:focus::-webkit-slider-thumb {
+    background: #ff6c00;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+    background: #ff6c00;
+}
