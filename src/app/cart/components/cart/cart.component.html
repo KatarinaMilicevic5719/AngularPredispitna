@@ -65,7 +65,7 @@
                         <tr class="bottom_button">
                             <td></td>
                             <td>
-                                <a class="gray_btn" href="#">Update Cart</a>
+                                
                             </td>
                             <td>
 
@@ -74,10 +74,10 @@
 
                             </td>
                             <td>
-                                <div class="cupon_text d-flex align-items-center">
-                                    <input type="text" placeholder="Coupon Code">
-                                    <a class="primary-btn" href="#">Apply</a>
+                                <div class="cupon_text d-flex align-items-center justify-content-between">
                                     <button class="gray_btn lk" (click)="removeAll()" [disabled]="this.cartItems.length==0">Remove All</button>
+                                
+                                    
                                 </div>
                             </td>
                         </tr>
@@ -96,57 +96,24 @@
                                 <h5>${{this.total}}</h5>
                             </td>
                         </tr>
-                        <tr class="shipping_area">
-                            <td>
-
-                            </td>
-                            <td></td>
-                            <td>
-
-                            </td>
-                            <td>
-                                <h5>Shipping</h5>
-                            </td>
-                            <td>
-                                <div class="shipping_box">
-                                    <ul class="list">
-                                        <li><a href="#">Flat Rate: $5.00</a></li>
-                                        <li><a href="#">Free Shipping</a></li>
-                                        <li><a href="#">Flat Rate: $10.00</a></li>
-                                        <li class="active"><a href="#">Local Delivery: $2.00</a></li>
-                                    </ul>
-                                    <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
-                                    <select class="shipping_select">
-                                        <option value="1">Bangladesh</option>
-                                        <option value="2">India</option>
-                                        <option value="4">Pakistan</option>
-                                    </select>
-                                    <select class="shipping_select">
-                                        <option value="1">Select a State</option>
-                                        <option value="2">Select a State</option>
-                                        <option value="4">Select a State</option>
-                                    </select>
-                                    <input type="text" placeholder="Postcode/Zipcode">
-                                    <a class="gray_btn" href="#">Update Details</a>
-                                </div>
-                            </td>
-                        </tr>
                         <tr class="out_button_area">
                             <td>
-
+                                
+                            </td>
+                            <td>
+                                
                             </td>
                             <td></td>
-                            <td></td>
                             <td>
-
+                                
                             </td>
                             <td>
 
                             </td>
                             <td>
-                                <div class="checkout_btn_inner d-flex align-items-center">
-                                    <a class="gray_btn" href="#">Continue Shopping</a>
-                                    <a class="primary-btn" href="#">Proceed to checkout</a>
+                                <div class="checkout_btn_inner d-flex align-items-center justify-content-betwee">
+                                    <a class="gray_btn" routerLink="/shop">Continue Shopping </a>
+                                    <button class="primary-btn" [disabled]="cartItems.length<=0"  (click)="toFormCheckout()">Proceed to Checkout</button>
                                 </div>
                             </td>
                         </tr>
@@ -154,5 +121,53 @@
                 </table>
             </div>
         </div>
+        <div class="row" [ngStyle]="{ display: isDisabledFormForCheckout ? 'none' : 'block' }">
+            <div class="col-lg-12">
+                <form [formGroup]="formCheckout">
+                <div class="d-flex justify-content-center flex-column align-items-center">
+                    <h3>Shipping information</h3>
+                    <br/>
+                    <div class="input-group-icon mt-10 mb-3">
+                        <div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                        <input type="text" name="fullName" formControlName="fullName" placeholder="Full name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full name'"
+                         required class="single-input"/>
+                         <div *ngIf="formCheckout.get('fullName').hasError('pattern')">
+                            <p class="alert alert-danger">Full name is not in good format. Example: John Doe</p>
+                        </div>
+                    </div>
+                   <div class="input-group-icon mt-10 mb-3">
+                    <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+                    <input type="text" name="address" formControlName="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'"
+                     required class="single-input" [ngClass]="{'error-border': formCheckout.get('address')?.invalid && formCheckout.get('address')?.touched}"/>
+                </div>
+                <div class="input-group-icon mt-10 mb-3">
+                    <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+                    <input type="text" name="city" formControlName="city" placeholder="City" onfocus="this.placeholder = ''" onblur="this.placeholder = 'City'"
+                     required class="single-input" [ngClass]="{'error-border': formCheckout.get('city')?.invalid && formCheckout.get('city')?.touched}"/>
+                </div>
+                <div class="input-group-icon mt-10 mb-3">
+                    <div class="icon"><i class="fa fa-address-book" aria-hidden="true"></i></div>
+                    <input type="text" name="postalCode" formControlName="postalCode" placeholder="Postal code" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Postal code'"
+                     required class="single-input"/>
+                     <div *ngIf="formCheckout.get('postalCode').hasError('pattern')">
+                        <p class="alert alert-danger">Postcode must have 5 numeric</p>
+                    </div>
+                </div>
+                <div class="mt-10 mb-3">
+                    <textarea class="single-textarea" formControlName="message" cols="40" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"
+                     ></textarea>
+                     <div *ngIf="formCheckout.get('message').hasError('minLength')">
+                        <p class="alert alert-danger">Postcode must have 5 numeric</p>
+                    </div>
+                </div>
+                <div class="mt-10 mb-3">
+                   <input type="submit" class="primary-btn" (click)="save()" value="Checkout" [disabled]="formCheckout.invalid"/>
+                </div>
+                </div>
+            </form>
+            </div>
+            
+        </div>
+        <p class="alert alert-success" *ngIf="isSuccessCheckoutCart">You have successfull checkout your cart</p>
     </div>
 </section>

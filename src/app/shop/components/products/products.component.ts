@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList,  ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList,  ViewChildren,inject } from '@angular/core';
 import { Product } from '../../../share/intefaces/product';
 import { ProductService } from '../../../share/services/product.service';
 import { Category } from '../../../share/intefaces/category';
@@ -9,6 +9,13 @@ import { BrandService } from '../../../share/services/brand.service';
 import { GenderService } from '../../../share/services/gender.service';
 import { Router } from '@angular/router';
 import { CartService } from '../../../share/services/cart.service';
+
+
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-products',
@@ -31,6 +38,9 @@ export class ProductsComponent implements OnInit {
   currentPrice:|number|null=null;
   sliderStyle:string = '';
   
+  private _snackBar = inject(MatSnackBar);
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
    
 
   filteredProducts=[...this.products];
@@ -202,6 +212,14 @@ export class ProductsComponent implements OnInit {
       `;
     }
   }
+  openSnackBar() {
+   this.cartService.toastText$.subscribe(item=>{
+     this._snackBar.open(item, 'Close', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration:5000
+    });
   
-
+   })
+  }
 }

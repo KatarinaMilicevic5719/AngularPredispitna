@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from '../../../share/intefaces/cart-item';
 import { CartService } from '../../../share/services/cart.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -10,6 +11,15 @@ import { CartService } from '../../../share/services/cart.service';
 export class CartComponent implements OnInit {
   cartItems:CartItem[]=[];
   total:number=0;
+  isDisabledFormForCheckout:boolean=true;
+  formCheckout:any=new FormGroup({
+    fullName:new FormControl('',[Validators.required,Validators.pattern(/^[A-ZŠĐČĆŽ][a-zšđčćž]+(?: [A-ZŠĐČĆŽ][a-zšđčćž]+)?$/)]),
+    address:new FormControl('',[Validators.required]),
+    city:new FormControl('',[Validators.required]),
+    postalCode:new FormControl('',[Validators.required,Validators.pattern(/^\d{5}$/)]),
+    message:new FormControl('',[Validators.minLength(10)])
+  });
+  isSuccessCheckoutCart:boolean=false;
   constructor(
     private cartService:CartService
   ){}
@@ -64,5 +74,20 @@ export class CartComponent implements OnInit {
    Total(){
     this.total=this.cartService.Total();
     console.log(this.total);
+   }
+   toFormCheckout(){
+    this.isDisabledFormForCheckout=false;
+   }
+   save(){
+    this.formCheckout.reset({
+      fullName:'',
+      address:'',
+      city:'',
+      postalCode:'',
+      message:''      
+    })
+    this.isSuccessCheckoutCart=!this.isSuccessCheckoutCart;
+    this.isDisabledFormForCheckout=!this.isDisabledFormForCheckout;
+    this.removeAll();
    }
 }

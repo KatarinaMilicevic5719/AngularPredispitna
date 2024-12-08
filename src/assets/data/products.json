@@ -1,115 +1,178 @@
 [
-    {
-      "id": 1,
-      "name": "Adidas supernova 2 M",
-      "image": "p1.jpg",
-      "price":{
-        "current": 60.99,
-        "old":100.99
-      },
-      "brandId": 1,
-      "categoryId": 1,
-      "genderId":3,
-      "sizes": [38, 39, 40, 41, 42, 43, 44],
-      "availability": "in_stock"
+  {
+    "id": 1,
+    "name": "Adidas supernova 2 M",
+    "image": "p1.jpg",
+    "price": {
+      "current": 60.99,
+      "old": 100.99
     },
-    {
-      "id": 2,
-      "name": "Nike run swift 3 M",
-      "image": "p2.jpg",
-      "price":{
-        "current": 60.99,
-        "old":null
-      },
-      "brandId": 2,
-      "categoryId": 1,
-      "genderId":2,
-      "sizes": [36, 37, 38, 39, 40],
-      "availability": "limited_stock"
-    },
-    {
-      "id": 3,
-      "name": "Adidas carrera cvs M ",
-      "image": "p3.jpg",
-      "price": {
-        "current":30.99,
-        "old":70.99
-      },
-      "brandId": 1,
-      "categoryId": 4,
-      "genderId":1,
-      "sizes": [40, 41, 42, 43],
-      "availability": "in_stock"
-    },
-    {
-      "id": 4,
-      "name": "New Balance 997 M",
-      "image": "p4.jpg",
-      "price": {
-        "current":74.99,
-        "old":null
-      },
-      "brandId": 3,
-      "categoryId": 2,
-      "genderId":1,
-      "sizes": [39, 40, 41],
-      "availability": "in_stock"
-    },
-    {
-      "id": 5,
-      "name": "Puma caven dime fc M",
-      "image": "p5.jpg",
-      "price": {
-        "current":53.99,
-        "old":null
-      },
-      "brandId": 5,
-      "categoryId": 2,
-      "genderId":1,
-      "sizes": [38, 39, 40, 41, 42],
-      "availability": "pre_order"
-    },
-    {
-      "id": 6,
-      "name": "Asics gel-pulse 15",
-      "image": "p6.jpg",
-      "price":{
-        "current":89.99,
-        "old":130.99
-      },
-      "brandId": 4,
-      "categoryId": 1,
-      "genderId":3,
-      "sizes": [37, 38, 39, 40],
-      "availability": "in_stock"
-    },
-    {
-      "id": 7,
-      "name": "Puma caven tape M",
-      "image": "p7.jpg",
-      "price":{
-        "current":50.99,
-        "old":null
-      },
-      "brandId": 5,
-      "categoryId": 2,
-      "genderId":2,
-      "sizes": [39, 40, 41, 42, 43],
-      "availability": "in_stock"
-    },
-    {
-      "id": 8,
-      "name": "Puma caven tape 2.0 M",
-      "image": "p8.jpg",
-      "price": {
-        "current":53.99,
-        "old":null
-      },
-      "brandId": 5,
-      "categoryId": 2,
-      "genderId":2,
-      "sizes": [36, 37, 38, 39, 40],
-      "availability": "in_stock"
+    "brandId": 1,
+    "categoryId": 1,
+    "genderId": 3,
+    "sizes": [38, 39, 40, 41, 42, 43, 44],
+    "availability": "in_stock",
+    "description": "Designed for the modern athlete, the Adidas Supernova 2 M offers superior comfort and durability. Perfect for long runs, intense workouts, or casual outings.",
+    "specifications": {
+      "material": "Breathable mesh and synthetic upper",
+      "weight": "280g per shoe",
+      "drop": "8mm heel-to-toe",
+      "arch": "Neutral",
+      "color": "Black/White"
     }
-  ]
-  
+  },
+  {
+    "id": 2,
+    "name": "Nike run swift 3 M",
+    "image": "p2.jpg",
+    "price": {
+      "current": 60.99,
+      "old": null
+    },
+    "brandId": 2,
+    "categoryId": 1,
+    "genderId": 2,
+    "sizes": [36, 37, 38, 39, 40],
+    "availability": "limited_stock",
+    "description": "Experience the ultimate blend of style and performance with Nike Run Swift 3 M. Featuring advanced cushioning and a sleek design for everyday wear.",
+    "specifications": {
+      "material": "Knitted mesh and synthetic overlays",
+      "weight": "290g per shoe",
+      "drop": "10mm heel-to-toe",
+      "arch": "Neutral",
+      "color": "Gray/Blue"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Adidas carrera cvs M",
+    "image": "p3.jpg",
+    "price": {
+      "current": 30.99,
+      "old": 70.99
+    },
+    "brandId": 1,
+    "categoryId": 4,
+    "genderId": 1,
+    "sizes": [40, 41, 42, 43],
+    "availability": "in_stock",
+    "description": "Step into timeless style with Adidas Carrera CVS M. This versatile footwear is lightweight, durable, and ideal for urban adventures.",
+    "specifications": {
+      "material": "Canvas with synthetic overlays",
+      "weight": "320g per shoe",
+      "drop": "Flat sole",
+      "arch": "Low",
+      "color": "White/Black"
+    }
+  },
+  {
+    "id": 4,
+    "name": "New Balance 997 M",
+    "image": "p4.jpg",
+    "price": {
+      "current": 74.99,
+      "old": null
+    },
+    "brandId": 3,
+    "categoryId": 2,
+    "genderId": 1,
+    "sizes": [39, 40, 41],
+    "availability": "in_stock",
+    "description": "Rediscover your stride with New Balance 997 M. Engineered with premium materials for maximum comfort and support.",
+    "specifications": {
+      "material": "Suede and mesh upper",
+      "weight": "350g per shoe",
+      "drop": "12mm heel-to-toe",
+      "arch": "High",
+      "color": "Navy/White"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Puma caven dime fc M",
+    "image": "p5.jpg",
+    "price": {
+      "current": 53.99,
+      "old": null
+    },
+    "brandId": 5,
+    "categoryId": 2,
+    "genderId": 1,
+    "sizes": [38, 39, 40, 41, 42],
+    "availability": "pre_order",
+    "description": "Elevate your casual look with Puma Caven Dime FC M. A perfect blend of sporty elegance and all-day comfort.",
+    "specifications": {
+      "material": "Synthetic leather",
+      "weight": "310g per shoe",
+      "drop": "5mm heel-to-toe",
+      "arch": "Neutral",
+      "color": "Red/Black"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Asics gel-pulse 15",
+    "image": "p6.jpg",
+    "price": {
+      "current": 89.99,
+      "old": 130.99
+    },
+    "brandId": 4,
+    "categoryId": 1,
+    "genderId": 3,
+    "sizes": [37, 38, 39, 40],
+    "availability": "in_stock",
+    "description": "Take your workouts to the next level with Asics Gel-Pulse 15. Featuring gel technology for shock absorption and stability.",
+    "specifications": {
+      "material": "Mesh and gel inserts",
+      "weight": "290g per shoe",
+      "drop": "10mm heel-to-toe",
+      "arch": "Neutral",
+      "color": "Blue/Orange"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Puma caven tape M",
+    "image": "p7.jpg",
+    "price": {
+      "current": 50.99,
+      "old": null
+    },
+    "brandId": 5,
+    "categoryId": 2,
+    "genderId": 2,
+    "sizes": [39, 40, 41, 42, 43],
+    "availability": "in_stock",
+    "description": "The Puma Caven Tape M redefines sporty sophistication. With its durable build and stylish design, it’s a must-have for any wardrobe.",
+    "specifications": {
+      "material": "Synthetic leather",
+      "weight": "310g per shoe",
+      "drop": "Flat sole",
+      "arch": "Neutral",
+      "color": "White/Green"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Puma caven tape 2.0 M",
+    "image": "p8.jpg",
+    "price": {
+      "current": 53.99,
+      "old": null
+    },
+    "brandId": 5,
+    "categoryId": 2,
+    "genderId": 2,
+    "sizes": [36, 37, 38, 39, 40],
+    "availability": "in_stock",
+    "description": "Upgrade your sneaker collection with Puma Caven Tape 2.0 M. A lightweight, trendy shoe built for everyday comfort.",
+    "specifications": {
+      "material": "Synthetic leather",
+      "weight": "300g per shoe",
+      "drop": "Flat sole",
+      "arch": "Low",
+      "color": "Black/Yellow"
+    }
+  }
+]

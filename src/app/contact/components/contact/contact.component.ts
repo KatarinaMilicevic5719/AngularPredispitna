@@ -12,7 +12,7 @@ export class ContactComponent {
     fullName:new FormControl('',[Validators.required,Validators.pattern(/^[A-ZČĆŽŠĐa-zčćžšđ]+(?:\s[A-ZČĆŽŠĐa-zčćžšđ]+)+$/),Validators.minLength(3)]),
     email:new FormControl('',[Validators.required,Validators.email]),
     subject:new FormControl('',[Validators.required,Validators.minLength(3)]),
-    message:new FormControl('',[Validators.required,Validators.minLength(5)])
+    message:new FormControl('',[Validators.minLength(5)])
   })
   onSubmit():void{
     this.form.reset({

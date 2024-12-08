@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
     this.cartService.totalCountListener$.subscribe(item=>{
       if(item) this.GetNumberOfCart();
     })
+    this.cartService.totalCountListener$.next(true)
    }
    GetNumberOfCart(){
     this.totalNumber=this.cartService.totalCount();

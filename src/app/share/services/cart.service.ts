@@ -11,17 +11,20 @@ export class CartService {
   private cartItems:CartItem[]=this.getCartItemsFromLocalStorage();
   private products:Product[]=this.getProductsFromLocalStorage();
   totalCountListener$=new BehaviorSubject<boolean>(false);
+  toastText$=new BehaviorSubject<string>('');
   
 
   constructor() { }
 
-  addToCart(id:number){
+  addToCart(id:number,quantity:number|null=null){
     console.log(this.products);
     console.log(this.cartItems);
     let existItem=this.cartItems.find(i=>i.id==id);
     if(existItem){
+      if(quantity!=null) existItem.quantity=existItem.quantity+quantity;
        existItem.quantity=existItem.quantity+1;
        this.saveCartItemsToLocalStorage();
+       this.toastText$.next("You updated product");
        
     }
     else{
@@ -32,10 +35,11 @@ export class CartService {
         name:itemNew.name,
         image:itemNew.image,
         price:itemNew.price.current,
-        quantity:1
+        quantity:quantity!=null?quantity:1
       };
       this.cartItems.push(obj);
       this.saveCartItemsToLocalStorage();
+      this.toastText$.next("You added product");
 
      }
     }

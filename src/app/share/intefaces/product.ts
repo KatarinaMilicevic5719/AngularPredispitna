@@ -10,5 +10,13 @@ export interface Product {
     categoryId:number,
     genderId:number,
     sizes:number[],
-    availability:string
+    availability:string,
+    description:string,
+    specifications:{
+        material:string,
+        weight:string,
+        drop:string,
+        arch:string,
+        color:string
+    }
 }
